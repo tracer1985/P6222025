@@ -1,3 +1,4 @@
+---
 - name: Check system uptime on all hosts
 
   tasks:
