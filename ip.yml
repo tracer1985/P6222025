@@ -1,8 +1,5 @@
 ---
 - name: Get IP address of all hosts
-  hosts: all
-  become: yes
-  gather_facts: yes
 
   tasks:
     - name: Show IP address(es) of the host
