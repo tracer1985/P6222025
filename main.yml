@@ -2,6 +2,7 @@
 - name: Main Playbook to include all YAML scripts
   hosts: all
   become: yes
+  gather_facts: yes
   vars:
     # Define any common variables here if needed
   tasks:
