@@ -1,0 +1,12 @@
+---
+- name: Main Playbook to include all YAML scripts
+  hosts: all
+  become: yes
+  vars:
+    # Define any common variables here if needed
+  tasks:
+    - name: Include all playbook YAML scripts
+      include_tasks: "{{ item }}"
+      loop:
+        - uptime.yml
+        - ip.yml
