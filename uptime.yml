@@ -1,7 +1,4 @@
 ---
-- name: Check system uptime on all hosts
-
-  tasks:
     - name: Get system uptime
       ansible.builtin.command: uptime
       register: uptime_output
