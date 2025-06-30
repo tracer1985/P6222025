@@ -1,9 +1,6 @@
 ---
 - hosts: all
   tasks:
-  
-    - name: Restart Windows Update service
-      win_service:
-        name: wuauserv
-        state: restarted
+    - name: Ping Windows host
+      win_ping:
       connection: winrm
