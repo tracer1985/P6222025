@@ -1,5 +1,12 @@
 ---
-- hosts: all
+- name: Test SSH connection to Windows host as Administrator
+  hosts: windows
+  gather_facts: no
   tasks:
-    - name: Ping Windows host
-      win_ping:
+    - name: Get Windows hostname
+      win_command: hostname
+      register: hostname_result
+
+    - name: Show hostname
+      debug:
+        var: hostname_result.stdout
