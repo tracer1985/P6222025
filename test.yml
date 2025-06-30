@@ -1,0 +1,6 @@
+---
+- hosts: windows_hosts
+  tasks:
+    - name: Ping Windows host
+      win_ping:
+      connection: winrm
