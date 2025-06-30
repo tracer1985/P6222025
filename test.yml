@@ -1,9 +1,10 @@
 ---
-- name: Start IIS Service on Windows
-  hosts: windows_servers
-  gather_facts: no
+- name: Stop IIS Services on Windows Hosts
+  hosts: windows
+  gather_facts: false
+
   tasks:
-    - name: Start World Wide Web Publishing Service (W3SVC)
-      win_service:
-        name: W3SVC
-        state: started
+    - name: Stop IIS (W3SVC) and WAS services
+      ansible.windows.win_powershell:
+        script: |
+          Stop-Service -Name 'W3SVC','WAS' -Force
