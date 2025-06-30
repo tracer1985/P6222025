@@ -1,12 +1,9 @@
 ---
-- name: Test SSH connection to Windows host as Administrator
+- name: Stop IIS on Windows Server
   hosts: all
   gather_facts: no
   tasks:
-    - name: Get Windows hostname
-      win_command: hostname
-      register: hostname_result
-
-    - name: Show hostname
-      debug:
-        var: hostname_result.stdout
+    - name: Stop IIS service (W3SVC)
+      win_service:
+        name: W3SVC
+        state: stopped
