@@ -1,6 +1,6 @@
 ---
 - name: Stop IIS Services on Windows Hosts
-  hosts: windows
+  hosts: all
   gather_facts: false
 
   tasks:
