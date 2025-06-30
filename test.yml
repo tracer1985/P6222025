@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.100.25
+- hosts: all
   tasks:
     - name: Ping Windows host
       win_ping:
