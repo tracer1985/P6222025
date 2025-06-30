@@ -1,9 +1,9 @@
 ---
-- name: Stop IIS on Windows Server
-  hosts: all
+- name: Start IIS Service on Windows
+  hosts: windows_servers
   gather_facts: no
   tasks:
-    - name: Stop IIS service (W3SVC)
+    - name: Start World Wide Web Publishing Service (W3SVC)
       win_service:
         name: W3SVC
-        state: stopped
+        state: started
