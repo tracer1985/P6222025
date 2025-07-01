@@ -4,14 +4,14 @@
   gather_facts: false
 
   tasks:
-    - name: Show status of W3SVC service
-      ansible.windows.win_service:
-        name: W3SVC
-      register: w3svc_status
-
-    - name: Display W3SVC service status
-      ansible.builtin.debug:
-        var: w3svc_status
-
     - name: Stop IIS using iisreset
       ansible.windows.win_command: iisreset /stop
+
+    - name: Show status of W3SVC service after stop
+      ansible.windows.win_service:
+        name: W3SVC
+      register: w3svc_status_after
+
+    - name: Display W3SVC service status after stop
+      ansible.builtin.debug:
+        var: w3svc_status_after
