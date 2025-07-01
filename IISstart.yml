@@ -1,5 +1,5 @@
 ---
-- name: Show W3SVC state after Start IIS Services on Windows Hosts
+- name: Start IIS Services on Windows Hosts and Show W3SVC State
   hosts: all
   gather_facts: false
 
@@ -7,7 +7,7 @@
     - name: Start IIS using iisreset
       ansible.windows.win_command: iisreset /start
 
-    - name: Show state of W3SVC service after stop
+    - name: Show state of W3SVC service after start
       ansible.windows.win_service:
         name: W3SVC
       register: w3svc_status_after
