@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: Strat IIS using iisreset
+    - name: Start IIS using iisreset
       ansible.windows.win_command: iisreset /start
 
     - name: Show state of W3SVC service after stop
@@ -12,6 +12,6 @@
         name: W3SVC
       register: w3svc_status_after
 
-    - name: Display only W3SVC service state after stop
+    - name: Display only W3SVC service state after start
       ansible.builtin.debug:
         msg: "{{ w3svc_status_after.state }}"
