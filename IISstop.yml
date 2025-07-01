@@ -1,8 +1,17 @@
 ---
-- name: Stop IIS Services on Windows Hosts
+- name: Show W3SVC status and Stop IIS Services on Windows Hosts
   hosts: all
   gather_facts: false
 
   tasks:
+    - name: Show status of W3SVC service
+      ansible.windows.win_service:
+        name: W3SVC
+      register: w3svc_status
+
+    - name: Display W3SVC service status
+      ansible.builtin.debug:
+        var: w3svc_status
+
     - name: Stop IIS using iisreset
       ansible.windows.win_command: iisreset /stop
