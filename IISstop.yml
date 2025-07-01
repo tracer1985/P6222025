@@ -1,0 +1,8 @@
+---
+- name: Stop IIS Services on Windows Hosts
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Stop IIS using iisreset
+      ansible.windows.win_command: iisreset /stop
